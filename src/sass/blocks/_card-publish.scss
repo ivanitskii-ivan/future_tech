@@ -1,0 +1,116 @@
+@use '../helpers/function' as *;
+@use '../helpers/mixins' as *;
+@use '../media/media' as *;
+
+.cards-publish {
+    position: relative;
+
+    &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        width: 100vw;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        @include borderBottom;
+    }
+
+}
+
+.card-publish {
+    padding-block: rem(80);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include laptop {
+        gap: rem(40);
+    }
+
+    @include tablet{
+        grid-template-columns: repeat(2,auto);
+        grid-template-areas: 'persone button'
+        "post post";
+        gap: fluid(30,20);
+    }
+
+    @include mobile-xs{
+        padding-block: rem(30);
+        grid-template-areas:"persone"
+        "post"
+        "button";
+    }
+
+
+    &__title {
+        @include laptop {
+            font-size: rem(18);
+        }
+    }
+
+    &__persone {
+        display: flex;
+        align-items: center;
+        gap: #{rem(16)};
+
+        @include tablet{
+            grid-area: persone;
+        }
+    }
+
+    &__hero {
+        display: flex;
+        flex-direction: column;
+        gap: rem(10)
+    }
+
+    &__post {
+        display: flex;
+        flex-direction: column;
+        gap: rem(30);
+        @include tablet{
+            grid-area: post;
+        }
+    }
+
+    &__button {
+        align-self: center;
+        @include tablet{
+            display: grid;
+            justify-content: end;
+            grid-area: button;
+        }
+        @include mobile-xs{
+            justify-content: flex-start;
+        }
+    }
+}
+
+
+.persone {
+    display: flex;
+    align-items: center;
+    gap: #{rem(16)};
+
+
+    &__img {
+        @include laptop{
+            width: rem(60);
+        }
+    }
+
+    &__photo{
+        max-width:calc((rem(16) * 3) + 2px);
+        min-width: calc((rem(16) * 2) + 8px);
+        @include tablet{
+            max-width: calc((rem(16) * 2) + 8px);
+        }
+        img{
+            
+         @include mobile{
+            width: rem(40);
+          }
+        }
+    }
+}

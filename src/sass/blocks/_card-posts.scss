@@ -1,0 +1,62 @@
+@use '../helpers/function' as *;
+@use '../helpers/mixins' as *;
+@use '../media/media' as *;
+.card-posts{
+    padding-left: #{rem(80)};
+    padding-block: #{rem(80)};
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    @include laptop {
+        padding-left: #{rem(60)};
+        padding-block: #{rem(60)};
+    }
+    @include tablet{
+        @include borderTop;
+        padding-block: #{rem(30)};
+        padding-left: #{rem(0)};
+        gap: #{rem(10)};
+    }
+
+
+    @include mobile-s{
+        justify-content: center;
+    }
+}
+
+.card-post{
+
+    &__items{
+        background: var(--dark-10);
+        border-radius: #{rem(12)};
+        border: solid #{rem(1)} var(--dark-15);
+        padding: #{rem(40)};
+        max-width:rem(443);
+        width: calc(50% - 16px);
+
+        @include laptop {
+            padding: #{rem(24)};
+        }
+
+        @include tablet{
+            width: calc(50% - 6px);
+        }
+
+        @include mobile{
+            max-width: 100%;
+            width: 100%;
+        }
+
+        @include mobile-s{
+            width: calc(100% - 16px);
+        }
+
+
+    }
+    &__link{
+        display: flex;
+        flex-direction: column;
+        gap: rem(20);
+    }
+}

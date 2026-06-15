@@ -1,0 +1,9 @@
+@use '../helpers/function' as *; 
+@use '../helpers/mixins' as *;
+
+.h3{
+    color: var(--light);
+    font-size: fluid(40,24);
+    font-family: 'Inter-SemiBold';
+}
+

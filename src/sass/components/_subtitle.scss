@@ -1,0 +1,19 @@
+@use '../media/media' as *;
+@use '../helpers/index' as *;
+
+.subtitle{
+    font-weight: 500;
+    color: var(--light);
+    font-family:  var(--font-family-base-medium);
+    font-size: #{rem(20)};
+    line-height: 1.5;
+    padding: #{rem(6) rem(10)};
+    background-color: var(--dark-20);
+    align-self: start;
+    @include laptop{
+        font-size: rem(16);
+    }
+    @include tablet{
+        font-size: #{fluid(16,14)};
+    }
+}

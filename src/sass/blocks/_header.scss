@@ -1,0 +1,110 @@
+@use '../helpers/function' as *;
+@use '../helpers/mixins' as *;
+@use '../media/media' as *;
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    // animation-name: bottomBoxShadow;
+    // animation-fill-mode:both;
+    // animation-timeline: scroll();
+    // animation-range: rem(50) rem(200);
+}
+
+.header{
+    transition: .5s ease;
+}
+//animate
+.box-shadow-bottom{
+    box-shadow: 0px -1px 7px var(--light);
+}
+
+@keyframes bottomBoxShadow{
+    to{
+            box-shadow: 0px -1px 7px white;
+    }
+}
+//
+
+.header{
+    background: var(--dark-08);
+    &__subscribe-link{
+        position: relative;
+        z-index: 100;
+        @include flex-center(false);
+        padding-block:#{rem(20)};
+        font-size: fluid(18, 12);
+        color: var(--grey-60);
+        gap: #{rem(10)};
+        text-align: center;
+        cursor: pointer;
+        line-height: 1.5;
+        @include tablet{
+            padding-inline:#{rem(14)} ;
+        }
+
+        &::after{
+            content: url('/src/icon/Icon.svg');
+            width: #{rem(24)};
+            height: #{rem(24)};
+        }
+    }
+    &__logo{
+        position: relative;
+        z-index: 100;
+        img{
+            width: fluid(179,126);
+        }
+    }
+
+    &__nav{
+        @include borderBlock;
+        background:var(--dark-10);
+    }
+
+    &__nav-menu{
+        display: contents;
+    }
+
+
+    &__nav-container{
+        padding-block: rem(24);
+        @include flex-space-between;
+        @include mobile{
+            padding-block: rem(20);
+        }
+    }
+
+    &__nav-items{
+        color: var(--grey-50);
+        @include flex-center(flase);
+        gap:#{rem(40)};
+        @include mobile{
+            display: contents;
+        }
+    }
+
+    &__overlay{
+
+        @include mobile{
+            @include hide;
+            display:flex;
+            flex-direction: column;
+            inset: 0;
+            position: fixed;
+            align-items: center;
+            justify-content: center;
+            gap: rem(20);
+            background:var(--dark-10);
+            overflow-y: scroll;
+            z-index: 1000;
+        }
+        &.is-open{
+            transition: .2s all ease;
+            @include show
+        }
+    }
+
+
+}

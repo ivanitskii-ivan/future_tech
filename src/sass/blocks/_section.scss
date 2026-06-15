@@ -1,0 +1,259 @@
+@use '../media/media' as *;
+@use '../helpers/index' as *;
+
+
+
+.section{
+    position: relative;
+    padding-block: rem(120);
+    background: var(--dark-10)center/cover no-repeat;
+    z-index: 0;
+    @include borderBlock;
+
+
+    //section-header
+    &-header{
+        display: flex;
+        flex-direction: column;
+        gap: rem(16);
+    }
+
+    &__title{
+        @include tablet{
+            font-size: fluid(44,28);
+        }
+    }
+
+    @include laptop{
+        padding-block: #{rem(80)};
+    }
+    @include tablet {
+        padding-block: fluid(80,40);
+    }
+
+    //section-hero
+
+    &-hero{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        @include tablet{
+            flex-wrap: wrap;
+        }
+        &__title{
+            @include laptop {
+                font-size: rem(44)
+            }
+            @include mobile {
+                font-size: fluid(44,28);
+            }
+        }
+        &__header{
+            flex: 1;
+
+            @include tablet{
+                flex: auto;
+            }
+        }
+        &__button{
+            @include mobile{
+                width: 100%;
+            }
+        }
+    }
+
+
+    //section-publish
+    &-publish{
+        padding: 0;
+        background: var(--dark-08)center/cover no-repeat;  
+           
+    }
+
+
+
+    //section-downlodad
+    &-download{
+        background: var(--dark-08);
+        padding: 0;
+
+
+        &__content{
+            display: flex;
+            @include tablet{
+                flex-direction: column;
+            }
+        }
+
+        &__preview{            
+            padding-block: rem(80);
+            padding-left: rem(80); 
+            display: flex;
+            flex-direction: column;
+            gap: rem(30);
+
+            @include laptop{
+                padding-block: rem(60);
+                padding-left: rem(60); 
+            }
+            @include tablet{
+                // padding-block: rem(40);
+                padding-left: rem(0); 
+            }
+            img{
+                @include tablet{
+                    width: 100%;
+                }
+            }
+
+        }
+        &__preview-top{
+            display: flex;
+            gap: rem(20);
+            align-items: center;
+            @include mobile{
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        &__preview-metrics{
+            display: flex;
+            gap: rem(20);
+            @include mobile{
+                flex-direction: column;
+            }
+        }
+
+        &_border-bt{
+            border-bottom: solid rem(1) var(--dark-10);
+        }
+
+        .preview__title{
+            flex: 1;
+            @include tablet{
+                flex: none;
+            }
+        }
+
+        .preview__description {
+            flex: 3;
+            @include laptop{
+                flex: 2;
+            }
+        }
+    }
+
+    //section-comments
+    &-comments{
+        background: var(--dark-08);
+        &__container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: rem(100);
+
+            @include tablet{
+                grid-template-columns: repeat(1,.8fr);
+                justify-content: center;
+            }
+
+            @include mobile{
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100vw;
+            @include borderBottom;
+        }
+
+    }
+
+    &-advantage{
+
+        &_row-2{
+            display: grid;
+            grid-template-rows: repeat(2,auto);
+        }
+
+        &__header{
+            display: grid;
+            grid-template-rows: repeat(1, 1fr);
+            gap: rem(30) rem(80);
+           grid-template-areas:
+           "logo title"
+           "logo description";
+           
+           @include mobile{
+            grid-template-areas:
+            "logo subtitle"
+            "title title"
+            "description description";
+             grid-template-columns: auto 1fr;
+             gap: rem(20) rem(20);
+           }
+        }
+
+        &__logo{
+            grid-area: logo;
+            align-self: center;
+            img{
+                @include mobile{
+                    max-width: rem(60);
+                }
+            }
+        }
+
+        &__title{
+            display: flex;
+            flex-direction: column;
+            gap: rem(16);
+            grid-area: title;
+            @include mobile{
+                display: contents;
+            }
+        }
+
+        .title{
+            grid-area: title;
+        }
+
+        &__subtitle{
+            grid-area: subtitle;
+            @include mobile{
+                justify-self: flex-start;
+                align-self: center;
+            }
+        }
+
+        &__description{
+            display: inline-flex;
+            grid-area:description;
+        }
+
+        &__cards{
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            padding: rem(20);
+            background: var(--dark-08);
+            gap: rem(20);
+            @include tablet{
+                grid-template-columns: repeat(1, auto);
+            }
+        }
+        &_gap-100{
+            display: grid;
+            gap: rem(100);
+        }
+    }
+}
+
+
+
+
+
+

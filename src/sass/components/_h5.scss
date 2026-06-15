@@ -1,0 +1,6 @@
+@use '../helpers/function' as *;
+
+.h5{
+    color:var(--light);
+    font-size: fluid(24,18);
+}

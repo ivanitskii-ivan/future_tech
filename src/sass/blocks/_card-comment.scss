@@ -1,0 +1,66 @@
+@use '../helpers/function' as *;
+@use '../media/media' as *;
+.card-comment{
+    position: relative;
+    &:not(:nth-child(3),:last-child)::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: calc(0px - 50px);
+        height:calc(100% + 240px);
+        transform: translateY(calc(-50% + 145px));
+        border-right:solid rem(1) var(--dark-15) ;
+        @include tablet{
+            border-right: none;
+        }
+    }
+
+
+    &__items{
+        display: grid;
+        justify-items: center;
+        gap: rem(40);
+    }
+
+
+    &__author{
+        display: flex;
+        align-items: center;
+        gap: rem(12);
+        justify-content: flex-start;
+    }
+
+    &__body{
+        position: relative;
+        padding: rem(50)rem(30)rem(30)rem(30);
+        background: var(--dark-10);
+        border-radius: rem(12);
+    }
+
+    &__post{
+        line-height: 150%;
+        font-size: rem(18);
+        color: var(--light);
+        text-align: center;
+        font-family: var(--font-family-base-regular);
+    }
+
+    &__rating-stars{
+        background: var(--dark-08);
+        border-radius: rem(100);
+        display: inline-flex;
+        align-items: center;
+        gap: rem(7);
+        padding-block: rem(10);
+        padding-inline: rem(16);
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        .rating-star{
+            content: url('/src/img/star/star.svg') ;
+        }
+    }
+
+}

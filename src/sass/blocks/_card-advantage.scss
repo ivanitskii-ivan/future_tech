@@ -1,0 +1,23 @@
+@use '../helpers/function' as *;
+
+.card-advantage{
+    display: grid;
+    padding: rem(40);
+    border-radius: rem(12);
+    border:solid rem(1) var(--dark-15);
+    background: var(--dark-10);
+    grid-template-areas: 
+    "link button";
+
+    &__img{
+        grid-area: button;
+    }
+
+    &__link{
+        display: flex;
+        flex-direction: column;
+        grid-area: link;
+        gap: rem(20);
+    }
+
+}

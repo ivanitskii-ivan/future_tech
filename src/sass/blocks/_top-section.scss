@@ -1,0 +1,306 @@
+@use '../helpers/function' as *;
+@use '../helpers/mixins' as *;
+@use '../media/media' as *;
+.top-section{
+    background: var(--dark-08);
+    &__main{
+        display: grid;
+        grid-template-areas: 
+        "hero resources"
+        "metrics resources"
+        "update update";
+        grid-template-rows: 1fr auto;
+        padding-top: rem(20);
+    //media tablet
+
+     @include laptop{
+        padding-top: 0;
+     }
+
+     @include tablet{
+        grid-template-areas: 
+        'hero hero'
+        'metrics metrics'
+        'resources resources'
+        "update update";  
+       }
+        
+    }
+
+    &__hero{
+        padding-top:fluid(150);
+        padding-bottom: rem(100);
+        grid-area: hero;
+        padding-right: rem(50);
+
+        @include laptop{
+            padding-top: fluid(100,40);
+            padding-bottom: fluid(100,30);
+        }
+
+    }
+
+    &__metrics{
+        position: relative;
+        grid-area: metrics;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100vw;
+            border-top: solid rem(1) var(--dark-15);
+            @include tablet{
+                right: rem(-16);
+            }
+        }
+        &::after{
+            content: '';
+            display: none;
+            position: absolute;
+            border-bottom: solid rem(1) var(--dark-15);
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            @include tablet{
+                display: block;
+                left: rem(-16);
+            }
+        }
+    }
+
+    &__resources{
+        position: relative;
+        grid-area: resources;
+
+        padding: rem(395) rem(0) rem(80) rem(80);
+
+    
+        @include laptop{
+            padding: rem(303) rem(0) rem(50) rem(50);
+        }
+    
+        @include tablet{
+            padding: rem(100) rem(26) rem(40);
+        }
+
+        @include border-l;
+
+    }
+
+    &__last-update{
+        grid-area: update;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        position: relative;
+
+           //media tablet
+    @include tablet{
+        grid-template-columns: repeat(1,1fr);        
+    }
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            border-top: solid rem(1) var(--dark-15);
+        }
+    }
+}
+
+
+//hero
+
+.hero{
+    &-subtitle{
+        font-family: var(--font-family-accent);
+        font-weight: 500;
+        font-size: fluid(30,18);
+        color: var(--dark-40);
+        padding: none;
+        background: none;
+        margin-bottom: rem(30);
+    }
+    &-title{
+        font-family: var(--font-family-accent);
+        font-size: fluid(70,30);
+        color: var(--light);
+        line-height: var(--line);
+        margin-bottom: rem(20);
+    }
+}
+
+
+// metrics-card
+
+.metrics-card{
+    padding-block: rem(50);
+    @include laptop{
+        padding-block: rem(30);
+    }
+
+    @include mobile{
+        padding-block: rem(20);
+    }
+    &:first-child{
+        padding-right: rem(50);
+        @include laptop{
+            padding-right: fluid(40,20);
+        }
+    }
+    &:last-child{
+        padding-left: rem(50);
+        @include laptop{
+            padding-left: fluid(40,20);
+        }
+    }
+    &:not(:last-child,:first-child){
+        padding-inline: rem(50);
+        @include laptop{
+            padding-inline: fluid(40,20);
+        }
+    }
+
+    &:not(:last-child){
+        @include border-r;
+    }
+
+    &__plus{
+        &_yellow{
+            color: var(--yellow);
+        }
+    }
+}
+
+//resurces
+
+.resources{
+
+    &__button{
+        padding-block: rem(18);
+        padding-inline: rem(24);
+    }
+
+}
+
+
+.resources-bg{
+    position: absolute;
+    inset: 0;
+
+    @include tablet{
+        width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @include mobile-s {
+        left: rem(-16);
+        width: auto;
+        transform: none;
+    }
+
+    &_img{
+        position: absolute;
+        inset: 0;
+       @include tablet{
+            height: 100%;
+       }
+    
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(20,20,20,0.3);
+        z-index:100;
+    }
+}
+
+
+.resources-items{
+    position: relative;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(30);
+}
+
+
+.resources-info{
+    display: flex;
+    flex-direction: column;
+    gap:rem(14);
+    &__button{
+        border-radius: rem(12);
+    }
+}
+
+
+//persone
+.persone{
+    &__wrapper{
+        display: flex;
+    }
+    &__photo:not(:first-child){
+        margin-left: rem(-12);
+    }
+}
+
+
+.recent-change{
+    border-top: solid rem(1) var(--dark-15);
+}
+
+
+//last-update-card
+
+.last-update-card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-block: rem(50);
+    padding-right: rem(80);
+    gap: rem(30);
+
+
+    @include laptop{
+        padding-right:  fluid(50,16);
+    }
+
+
+    &:not(:last-child){
+        border-right: solid rem(1) var(--dark-15);
+        @include tablet{
+            border-bottom: solid rem(1) var(--dark-15);
+            border-right: none;
+        }
+    }
+    &:not(:first-child){
+        padding-left: rem(80);
+        @include laptop{
+            padding-left: fluid(50,16);
+            padding-right:  fluid(50,16);
+        }
+
+    
+    }
+    &__link{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: rem(4);
+        &::after{
+            position: absolute;
+            top: 0;
+            right:0;
+            content: url('/src/icon/Button.svg');
+        }
+    }
+}

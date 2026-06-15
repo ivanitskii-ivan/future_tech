@@ -1,0 +1,73 @@
+@use "../helpers/function" as *;
+@use '../helpers/mixins' as *;
+@use '../media/media' as *;
+
+.card-blog{
+    position: relative;
+    padding-block: rem(155);
+    padding-right: #{rem(80)};
+    border-right: solid rem(1) var(--dark-15);
+
+    &_flex{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: rem(60);
+        @include tablet{
+            gap:rem(24)
+        }
+    }
+
+
+    &__title{
+
+     @include tablet{
+        font-size: fluid(44,24);
+     }    
+    }
+
+    @include laptop{
+        padding-block: #{rem(122.5)};
+        padding-right: #{rem(60)};
+    }
+    @include tablet {
+        border-right: none;
+        padding-block: #{rem(55)};
+        padding-right: #{rem(0)};
+    }
+
+    &_padding-block{
+        padding-block: rem(155);
+        @include laptop{
+            padding-block: rem(150);
+        }
+        @include tablet{
+            padding-block: rem(40);
+        }
+    }
+
+
+    flex: 0 0 37.5%;
+
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        gap: #{rem(50)};
+        &_gap-24{
+            @include tablet{
+                gap: rem(24);
+            }
+        }
+    }
+
+    &__hero{
+        display: flex;
+        flex-direction: column;
+        gap: #{rem(16)};
+    }
+
+    &_border-bt{
+        border-bottom: solid rem(1) var(--dark-15);
+    }
+}

@@ -1,0 +1,40 @@
+@use '../helpers/function' as *;
+@use '../media/media' as *;
+
+.tabs{
+    padding-block: #{rem(50)};
+    background: var(--dark-08) center/cover no-repeat;
+
+    @include laptop{
+        overflow-x: auto;
+    }
+
+    &__header{
+        min-width: rem(1045);
+    }
+    &__buttons{
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        gap: #{rem(20)};
+        @include laptop{
+            gap: #{rem(14)};
+        }
+    }
+    &__button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-block: #{rem(30)};
+        border-radius:#{rem(8)};
+        background: var(--dark-08);
+        color: var(--grey-60);
+        border:solid var(--dark-15) rem(1);
+        transition: .2s ease-in all;
+    }
+}
+
+
+.tab-active{
+    background: var(--dark-10);
+    
+}

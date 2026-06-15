@@ -1,0 +1,13 @@
+@use '../helpers/function' as *;
+@use '../media/media' as *;
+.date{
+    font-size: rem(20);
+    color: var(--grey-60);
+    line-height: 1.5;
+    font-family: var(--font-family--base-semiBold);
+    
+
+    @include laptop{
+        font-size: rem(18);
+    }
+}

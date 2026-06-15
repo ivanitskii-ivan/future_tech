@@ -1,0 +1,40 @@
+@use '../media/media' as *;
+@use '../helpers/function' as *;
+
+.burger-mobile{
+    display: none;
+    @include mobile{
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+        gap: rem(5);
+        z-index: 1000;
+        &_elem{
+            transition: .2s all;
+            background-color: var(--light);
+            width: rem(25);
+            height: rem(1.5);
+            border-radius: rem(5);
+        }
+        &_elem:nth-child(3){
+            width: rem(15);
+        }
+
+    }
+    &.is-open{
+        .burger-mobile{
+            transition: .2s all;
+            &_elem:nth-child(1){
+                rotate: 45deg;
+                transform: translate(0.1em, -0.4em);
+                transform-origin: 0;
+            }
+            &_elem:nth-child(2){
+                rotate:-45deg;
+            }
+            &_elem:nth-child(3){
+                width: 0;
+            }
+        }
+    }
+}

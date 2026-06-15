@@ -1,0 +1,50 @@
+@use'helpers/function' as *;
+@use 'media/media' as *;
+
+:root{
+
+
+    @include mobile-s {
+        min-width: 20rem;
+        overflow-x: scroll;
+    }
+    //media-screen 
+    
+    //color
+    --yellow:#FFD11A;
+    --yellow-accent:#FFD633;
+    --light:#FFF;
+    --dark:#000;
+    --dark-08:#141414;
+    --dark-10:#1A1A1A;
+    --dark-15:#262626;
+    --dark-20:#333333;
+    --dark-40:#666666;
+    --grey-50:#7E7E81;
+    --grey-60:#98989A;
+
+    --linear-gradient-dark:rgba(38, 38, 38, 0.5);
+    --linear-gradient-yellow:rgba(255, 205, 25, 0.5);
+    //font-family
+
+    --font-family-base-regular: 'Inter-Regular', 'sans-serif'; 
+    --font-family-base-medium : 'Inter-Medium' , 'sans-serif';
+    --font-family--base-semiBold: 'Inter-SemiBold', 'sans-serif';
+    --font-family-accent: 'KumbSans-Medium', 'sans-serif';
+
+
+    //line-height
+
+    --line:1.2;
+
+
+    //animate
+    --transition-duration: transition-duration: .2s;
+
+    //widtn
+    --container-width:#{rem(1600)};
+
+    //padding
+    --container-padding-x:#{rem(16)};
+
+}

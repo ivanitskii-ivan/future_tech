@@ -1,0 +1,17 @@
+@use '../helpers/function' as *;
+@use '../helpers/mixins' as *;
+@use '../media/media' as * ;
+
+.section-blog{
+    background: var(--dark-08) center/cover no-repeat;
+    
+    @include borderBottom;
+    &__container{
+        display:  flex;
+    
+       @include tablet{
+            flex-direction: column;
+       }
+    }
+    
+}

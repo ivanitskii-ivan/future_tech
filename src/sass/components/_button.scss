@@ -1,0 +1,73 @@
+@use '../helpers/function' as *;
+@use '../helpers/mixins' as *;
+@use '../media/media' as *;
+
+.button{
+    transition: .2s all;
+    padding: #{rem(18) rem(24)};
+
+    @include laptop{
+        padding:  #{rem(14) rem(20)};
+    }
+    &_wv{
+        @include mobile{
+            padding: rem(14) rem(0);
+            width:100%;
+            max-width: 25rem
+        }
+    
+    }
+    @include flex-center(flase);
+    border: solid var(--dark-15);
+    border-radius: #{rem(8)};
+    color: var(--grey-60);
+    display: inline-flex;
+    align-items: center;
+    gap: #{rem(10)};
+    &::after{
+        content: url('/src/icon/Icon.svg');
+        width: #{rem(24)};
+        height: #{rem(24)}
+    }
+    &_accent{
+        background: var(--yellow);
+        padding: #{rem(14) rem(20)};
+        max-width: #{rem(137)};
+        border-radius: #{rem(10)};
+        font-family: var(--font-family-base-medium);
+        outline: none;
+        border:solid 1px;
+        @include hoverLaptop(var(--light));
+        @include hoverTablet(var(--light))
+    }
+   &_link{
+    padding: rem(10) rem(16);
+    color: var(--grey-50);
+   }
+   &_dark-10{
+    background: var(--dark-10);
+   }
+   &_eye{
+    &::after{
+        content: url('/src/icon/eye.svg');
+        width: #{rem(24)};
+        height: #{rem(24)}
+    }
+   }
+}
+
+.btn-new{
+    padding-block:fluid(4,2);
+    padding-inline: fluid(12,8);
+    display: inline-block;
+    margin-left:rem(8);
+    color: var(--light);    
+    font-size: rem(16);
+    font-weight: 400;
+    text-align: center;
+    border: solid rem(1) transparent;
+    line-height: 1.5;
+    background: linear-gradient(var(--linear-gradient-dark),var(--linear-gradient-dark))padding-box,
+    linear-gradient( 49deg, var(--linear-gradient-dark)70%,var(--linear-gradient-yellow)150%) border-box;
+    border-radius:rem(6);
+}

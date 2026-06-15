@@ -1,0 +1,45 @@
+@use "../helpers/function" as *;
+
+
+$laptop:1440.98;
+$tablet:1022.98;
+$mobile:767.98;
+$mobile-s:480.98;
+$mobile-xs:371.98;
+
+
+
+@mixin laptop{
+        @media(width <= #{rem($laptop)}){
+            @content;
+    }
+}
+
+
+
+
+@mixin tablet{
+    @media(width <= #{rem($tablet)}){
+        @content
+    }
+}
+
+
+@mixin mobile{
+    @media(width <= #{rem($mobile)}){
+        @content
+    }
+}
+
+
+@mixin mobile-s{
+    @media(width <= #{rem($mobile)}){
+        @content
+    }
+}
+
+@mixin mobile-xs{
+    @media(width <= #{rem($mobile-xs)}){
+        @content
+    }
+}

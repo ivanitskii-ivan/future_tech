@@ -1,0 +1,27 @@
+@use '../helpers/function' as *;
+@use '../media/media' as *;
+
+.downloaded-card{
+    padding: rem(30);
+    background: var(--dark-10);
+    display: inline-flex;
+    align-items: center;
+    gap: rem(50);
+    border-radius: rem(13);
+
+    @include mobile-s{
+        gap: rem(30);
+    }
+
+
+    @include mobile-xs{
+        padding: rem(19);
+        gap: rem(10);
+    }
+
+    &__items{
+        padding: rem(10);
+        background: var(--dark-08);
+        border-radius: rem(12);
+    }
+}

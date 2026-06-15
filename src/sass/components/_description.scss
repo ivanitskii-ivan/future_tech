@@ -1,0 +1,7 @@
+@use '../helpers/function';
+
+.description{
+    font-family: var(--font-family-base-regular);
+    font-size: fuild(18,14);
+    color: var(--grey-50);
+}
